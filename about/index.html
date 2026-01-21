@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects — Your Name</title>
+  <title>About — Your Name</title>
   <style>
     :root{
       --sky:#a1c6ea; --ink:#12314a; --ink2:#1b3f5c; --muted:#234a66;
@@ -25,22 +25,19 @@
     .sidebar-footer{margin-top:auto; padding:12px; border-radius:16px; background:rgba(255,255,255,.20); border:1px solid rgba(255,255,255,.28); font-size:13px; opacity:.9;}
     main{padding:28px;}
     .center{min-height: calc(100vh - 56px); display:grid; place-items:center;}
-    .bubble{width:min(980px,100%); background:var(--sky); border-radius:34px; border:1px solid rgba(0,0,0,.05); box-shadow:var(--shadow); padding:30px;}
+    .bubble{width:min(900px,100%); background:var(--sky); border-radius:34px; border:1px solid rgba(0,0,0,.05); box-shadow:var(--shadow); padding:30px;}
     h1{margin:0 0 10px; font-size: clamp(28px, 3.8vw, 44px); letter-spacing:-.6px; line-height:1.05;}
     .subtitle{margin:0 0 18px; color:var(--muted); max-width: 70ch;}
 
-    .grid{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin-top:14px;}
-    .proj{
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:14px;}
+    .box{
       padding:14px;
       border-radius: 18px;
       background: rgba(255,255,255,.35);
       border: 1px solid rgba(255,255,255,.45);
     }
-    .proj:hover{background: rgba(255,255,255,.48);}
-    .proj h3{margin:0 0 6px; font-size:18px;}
-    .proj p{margin:0; color: rgba(18,49,74,.82);}
-    .tags{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;}
-    .tag{font-size:13px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.35); border:1px solid rgba(255,255,255,.45);}
+    .box h3{margin:0 0 6px; font-size:16px;}
+    .box p{margin:0; color: rgba(18,49,74,.82);}
 
     .actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;}
     .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.55); background:rgba(255,255,255,.45); cursor:pointer;}
@@ -54,7 +51,7 @@
       aside{position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border);}
       .center{min-height: 70vh;}
       .bubble{border-radius:28px; padding:22px;}
-      .grid{grid-template-columns:1fr;}
+      .row{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -69,57 +66,44 @@
       <nav aria-label="Sidebar">
         <a href="../">🏠 Home</a>
         <a href="../blogs/">📝 Blog</a>
-        <a class="active" href="./">🧩 Projects</a>
-        <a href="../about/">👋 About Me</a>
+        <a href="../projects/">🧩 Projects</a>
+        <a class="active" href="./">👋 About Me</a>
       </nav>
 
       <div class="sidebar-footer">
-        Tip: link projects to GitHub repos, demos, or writeups.
+        Add links here later: resume, email, socials.
       </div>
     </aside>
 
     <main>
       <div class="center">
         <div class="bubble">
-          <h1>Projects</h1>
-          <p class="subtitle">A few things I’ve built (or am building). Replace these with your real projects.</p>
+          <h1>About Me</h1>
+          <p class="subtitle">
+            Replace this with a short bio: what you study, what you like building, and what you’re looking for.
+          </p>
 
-          <div class="grid">
-            <a class="proj" href="#" target="_blank" rel="noreferrer">
-              <h3>Project A</h3>
-              <p>One-line description of what it does and why it’s cool.</p>
-              <div class="tags">
-                <span class="tag">Robotics</span><span class="tag">Python</span><span class="tag">Control</span>
-              </div>
-            </a>
-
-            <a class="proj" href="#" target="_blank" rel="noreferrer">
-              <h3>Project B</h3>
-              <p>What you made + an outcome (speed, accuracy, etc.).</p>
-              <div class="tags">
-                <span class="tag">Embedded</span><span class="tag">C++</span><span class="tag">CAN</span>
-              </div>
-            </a>
-
-            <a class="proj" href="#" target="_blank" rel="noreferrer">
-              <h3>Project C</h3>
-              <p>Something web/app related, or a class project you’re proud of.</p>
-              <div class="tags">
-                <span class="tag">Web</span><span class="tag">UI</span><span class="tag">APIs</span>
-              </div>
-            </a>
-
-            <a class="proj" href="#" target="_blank" rel="noreferrer">
-              <h3>Project D</h3>
-              <p>Another project. You can keep this to 3–6 total.</p>
-              <div class="tags">
-                <span class="tag">Systems</span><span class="tag">Testing</span><span class="tag">Tools</span>
-              </div>
-            </a>
+          <div class="row">
+            <div class="box">
+              <h3>What I’m into</h3>
+              <p>Robotics, embedded systems, avionics, and building software that ships.</p>
+            </div>
+            <div class="box">
+              <h3>Currently</h3>
+              <p>Student / internship search / team work — whatever fits you.</p>
+            </div>
+            <div class="box">
+              <h3>Contact</h3>
+              <p>Email: you@domain.com<br/>LinkedIn: your-link<br/>GitHub: sienna0</p>
+            </div>
+            <div class="box">
+              <h3>Fun fact</h3>
+              <p>Optional: one human detail.</p>
+            </div>
           </div>
 
           <div class="actions">
-            <a class="btn primary" href="../blogs/">Read Blog</a>
+            <a class="btn primary" href="../projects/">View Projects</a>
             <a class="btn" href="../">Back Home</a>
           </div>
 
