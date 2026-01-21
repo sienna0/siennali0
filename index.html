@@ -65,6 +65,13 @@
       border-color: rgba(255,255,255,.38);
     }
 
+    nav a.active{
+        background: rgba(255,255,255,.45);
+        border-color: rgba(255,255,255,.55);
+        font-weight: 700;
+    }
+
+
     .sidebar-footer{
       margin-top:auto;
       padding:12px;
@@ -202,6 +209,7 @@
 
       <nav aria-label="Sidebar">
         <!-- relative links: works for user-site OR project-site -->
+        <a class="active" href="./">🏠 Home</a>
         <a href="./blogs/">📝 Blog</a>
         <a href="./projects/">🧩 Projects</a>
         <a href="./about/">👋 About Me</a>
