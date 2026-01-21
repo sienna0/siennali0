@@ -6,25 +6,30 @@
   <title>Your Name</title>
   <style>
     :root{
-      --bg: #f7f8fb;
+      /* Theme (based on #a1c6ea) */
+      --accent: #a1c6ea;        /* your color */
+      --accent-2: #78addc;      /* slightly deeper accent */
+      --accent-dark: #2b5c8a;   /* for readable buttons/text on light bg */
+      --accent-dark-2:#224a70;  /* hover */
+
+      --bg: #f6fbff;
       --card: #ffffff;
-      --text: #101828;
-      --muted: #475467;
-      --border: #e6e8ef;
-      --shadow: 0 18px 50px rgba(16,24,40,.08);
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --shadow: 0 18px 50px rgba(15,23,42,.08);
       --radius: 18px;
-      --accent: #4f46e5; /* indigo */
-      --accent2:#06b6d4; /* cyan */
     }
+
     *{ box-sizing:border-box; }
     body{
       margin:0;
       font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
       background:
-        radial-gradient(900px 600px at 15% 10%, rgba(79,70,229,.12), transparent 60%),
-        radial-gradient(900px 650px at 85% 20%, rgba(6,182,212,.10), transparent 55%),
-        var(--bg);
+        radial-gradient(900px 600px at 15% 10%, rgba(161,198,234,.55), transparent 60%),
+        radial-gradient(900px 650px at 85% 20%, rgba(161,198,234,.35), transparent 55%),
+        linear-gradient(180deg, #f6fbff 0%, #f3f8ff 100%);
     }
     a{ color:inherit; text-decoration:none; }
 
@@ -41,7 +46,7 @@
       height:100vh;
       padding:18px;
       border-right:1px solid var(--border);
-      background: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.72);
       backdrop-filter: blur(10px);
     }
     .brand{
@@ -52,11 +57,12 @@
       border:1px solid var(--border);
       border-radius: 16px;
       background: var(--card);
-      box-shadow: 0 10px 30px rgba(16,24,40,.05);
+      box-shadow: 0 10px 30px rgba(15,23,42,.05);
     }
     .logo{
       width:36px; height:36px; border-radius:14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border: 1px solid rgba(43,92,138,.12);
     }
     .brand strong{display:block; font-size:14px}
     .brand span{display:block; color:var(--muted); font-size:12px}
@@ -73,8 +79,8 @@
     }
     nav a:hover{
       color: var(--text);
-      background: #f2f4ff;
-      border-color: #e4e7ff;
+      background: rgba(161,198,234,.22);
+      border-color: rgba(161,198,234,.45);
     }
 
     .sidebar-footer{
@@ -82,10 +88,10 @@
       padding:12px;
       border-radius: 16px;
       border:1px solid var(--border);
-      background: var(--card);
+      background: linear-gradient(135deg, rgba(161,198,234,.20), rgba(255,255,255,.85));
       color: var(--muted);
       font-size: 13px;
-      box-shadow: 0 10px 30px rgba(16,24,40,.04);
+      box-shadow: 0 10px 30px rgba(15,23,42,.04);
     }
 
     /* Main / centered landing card */
@@ -102,18 +108,32 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 26px;
+      position: relative;
+      overflow: hidden;
     }
+    /* soft accent wash in the card */
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-120px -120px auto auto;
+      width:320px;
+      height:320px;
+      background: radial-gradient(circle, rgba(161,198,234,.55), transparent 60%);
+      pointer-events:none;
+    }
+
     .profile{
       display:flex;
       gap:18px;
       align-items:center;
+      position:relative;
     }
     .avatar{
       width:92px; height:92px;
       border-radius: 22px;
       object-fit: cover;
-      border: 1px solid var(--border);
-      background: #eef2ff;
+      border: 1px solid rgba(43,92,138,.18);
+      background: rgba(161,198,234,.25);
       flex: 0 0 auto;
     }
     h1{
@@ -127,6 +147,7 @@
       color: var(--muted);
       font-size: 15px;
     }
+
     .chips{
       margin-top:14px;
       display:flex;
@@ -135,12 +156,13 @@
     }
     .chip{
       font-size: 13px;
-      color: #344054;
+      color: #1f2937;
       padding: 6px 10px;
       border-radius: 999px;
-      border:1px solid var(--border);
-      background: #fbfcff;
+      border:1px solid rgba(161,198,234,.65);
+      background: rgba(161,198,234,.18);
     }
+
     .actions{
       margin-top:18px;
       display:flex;
@@ -158,14 +180,15 @@
       color: var(--text);
       cursor: pointer;
     }
-    .btn:hover{ background:#f6f7ff; }
+    .btn:hover{ background: rgba(161,198,234,.18); border-color: rgba(161,198,234,.55); }
+
     .btn.primary{
-      border:none;
+      border: none;
       color:#fff;
-      background: linear-gradient(135deg, var(--accent), #7c3aed);
-      box-shadow: 0 14px 32px rgba(79,70,229,.22);
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent-dark-2));
+      box-shadow: 0 14px 32px rgba(43,92,138,.22);
     }
-    .btn.primary:hover{ filter: brightness(1.02); }
+    .btn.primary:hover{ filter: brightness(1.03); }
 
     .note{
       margin-top:14px;
@@ -177,6 +200,7 @@
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
+      position:relative;
     }
 
     /* Mobile */
@@ -207,14 +231,14 @@
       </div>
 
       <nav aria-label="Sidebar">
-        <!-- Use ./blogs/ etc so it works whether this is a user site OR a project site -->
+        <!-- relative links so it works for user-site OR project-site -->
         <a href="./blogs/">📝 Blog</a>
         <a href="./projects/">🧩 Projects</a>
         <a href="./about/">👋 About Me</a>
       </nav>
 
       <div class="sidebar-footer">
-        Put your profile photo in <b>assets/profile.jpg</b> and edit the text in this page.
+        Upload your profile photo to <b>assets/profile.jpg</b> (or change the filename below).
       </div>
     </aside>
 
@@ -222,7 +246,6 @@
       <div class="center">
         <div class="card">
           <div class="profile">
-            <!-- Put your photo at assets/profile.jpg -->
             <img class="avatar" src="./assets/profile.jpg" alt="Profile photo" onerror="this.style.display='none'">
             <div>
               <h1>Your Name</h1>
@@ -247,7 +270,7 @@
           <div class="note">
             <span>© <span id="year"></span> Your Name</span>
             <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
-              GitHub Pages
+              Theme: #a1c6ea
             </span>
           </div>
         </div>
