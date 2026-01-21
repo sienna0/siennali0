@@ -6,18 +6,16 @@
   <title>Your Name</title>
   <style>
     :root{
-      /* Theme (based on #a1c6ea) */
-      --accent: #a1c6ea;        /* your color */
-      --accent-2: #78addc;      /* slightly deeper accent */
-      --accent-dark: #2b5c8a;   /* for readable buttons/text on light bg */
-      --accent-dark-2:#224a70;  /* hover */
+      --sky: #a1c6ea;          /* soft sky blue */
+      --sky-dark: #2b5c8a;     /* readable contrast */
+      --sky-dark-2:#224a70;
 
-      --bg: #f6fbff;
-      --card: #ffffff;
+      --bg: #eef5ff;           /* page background (very light) */
+      --card: #ffffff;         /* center content */
       --text: #0f172a;
       --muted: #475569;
-      --border: #e2e8f0;
-      --shadow: 0 18px 50px rgba(15,23,42,.08);
+      --border: #d6e6f7;
+      --shadow: 0 18px 50px rgba(15,23,42,.10);
       --radius: 18px;
     }
 
@@ -26,16 +24,13 @@
       margin:0;
       font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
-      background:
-        radial-gradient(900px 600px at 15% 10%, rgba(161,198,234,.55), transparent 60%),
-        radial-gradient(900px 650px at 85% 20%, rgba(161,198,234,.35), transparent 55%),
-        linear-gradient(180deg, #f6fbff 0%, #f3f8ff 100%);
+      background: var(--bg);
     }
     a{ color:inherit; text-decoration:none; }
 
     .layout{
       display:grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 270px 1fr;
       min-height:100vh;
     }
 
@@ -45,27 +40,27 @@
       top:0;
       height:100vh;
       padding:18px;
-      border-right:1px solid var(--border);
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(10px);
+      background: var(--sky);
+      border-right: 1px solid rgba(0,0,0,.06);
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
       padding:12px;
-      border:1px solid var(--border);
       border-radius: 16px;
-      background: var(--card);
-      box-shadow: 0 10px 30px rgba(15,23,42,.05);
+      background: rgba(255,255,255,.35);
+      border: 1px solid rgba(255,255,255,.35);
     }
-    .logo{
-      width:36px; height:36px; border-radius:14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      border: 1px solid rgba(43,92,138,.12);
+    .brand strong{
+      display:block;
+      font-size:14px;
+      letter-spacing:.2px;
+      color: rgba(15,23,42,.9);
     }
-    .brand strong{display:block; font-size:14px}
-    .brand span{display:block; color:var(--muted); font-size:12px}
+    .brand span{
+      display:block;
+      font-size:12px;
+      color: rgba(15,23,42,.72);
+      margin-top:2px;
+    }
 
     nav{ margin-top:14px; display:grid; gap:8px; }
     nav a{
@@ -74,76 +69,73 @@
       gap:10px;
       padding:10px 12px;
       border-radius: 14px;
-      border:1px solid transparent;
-      color: var(--muted);
+      color: rgba(15,23,42,.82);
+      border: 1px solid transparent;
+      background: rgba(255,255,255,.18);
     }
     nav a:hover{
-      color: var(--text);
-      background: rgba(161,198,234,.22);
-      border-color: rgba(161,198,234,.45);
+      background: rgba(255,255,255,.30);
+      border-color: rgba(255,255,255,.40);
     }
 
     .sidebar-footer{
       margin-top:auto;
       padding:12px;
       border-radius: 16px;
-      border:1px solid var(--border);
-      background: linear-gradient(135deg, rgba(161,198,234,.20), rgba(255,255,255,.85));
-      color: var(--muted);
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.30);
+      color: rgba(15,23,42,.74);
       font-size: 13px;
-      box-shadow: 0 10px 30px rgba(15,23,42,.04);
     }
 
-    /* Main / centered landing card */
-    main{ padding: 26px; }
+    /* Main */
+    main{ padding: 28px; }
     .center{
-      min-height: calc(100vh - 52px);
+      min-height: calc(100vh - 56px);
       display:grid;
       place-items:center;
     }
+
     .card{
-      width: min(720px, 100%);
-      border:1px solid var(--border);
+      width: min(760px, 100%);
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      border: 1px solid var(--border);
       padding: 26px;
-      position: relative;
-      overflow: hidden;
-    }
-    /* soft accent wash in the card */
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:-120px -120px auto auto;
-      width:320px;
-      height:320px;
-      background: radial-gradient(circle, rgba(161,198,234,.55), transparent 60%);
-      pointer-events:none;
     }
 
     .profile{
       display:flex;
       gap:18px;
       align-items:center;
-      position:relative;
     }
+
     .avatar{
-      width:92px; height:92px;
+      width:96px;
+      height:96px;
       border-radius: 22px;
       object-fit: cover;
-      border: 1px solid rgba(43,92,138,.18);
-      background: rgba(161,198,234,.25);
+      border: 1px solid rgba(0,0,0,.08);
+      background: #f1f5f9;
       flex: 0 0 auto;
     }
-    h1{
-      margin:0 0 6px;
-      font-size: clamp(28px, 3.4vw, 42px);
-      letter-spacing: -0.6px;
+
+    /* Name bubble (sky blue) */
+    .name-bubble{
+      display:inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--sky);
+      border: 1px solid rgba(0,0,0,.06);
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      font-size: clamp(22px, 3.2vw, 34px);
       line-height: 1.1;
     }
+
     .subtitle{
-      margin:0;
+      margin:10px 0 0;
       color: var(--muted);
       font-size: 15px;
     }
@@ -156,11 +148,11 @@
     }
     .chip{
       font-size: 13px;
-      color: #1f2937;
+      color: rgba(15,23,42,.84);
       padding: 6px 10px;
       border-radius: 999px;
-      border:1px solid rgba(161,198,234,.65);
-      background: rgba(161,198,234,.18);
+      border:1px solid var(--border);
+      background: #f7fbff;
     }
 
     .actions{
@@ -180,41 +172,38 @@
       color: var(--text);
       cursor: pointer;
     }
-    .btn:hover{ background: rgba(161,198,234,.18); border-color: rgba(161,198,234,.55); }
+    .btn:hover{ background: #f7fbff; }
 
     .btn.primary{
       border: none;
       color:#fff;
-      background: linear-gradient(135deg, var(--accent-dark), var(--accent-dark-2));
-      box-shadow: 0 14px 32px rgba(43,92,138,.22);
+      background: var(--sky-dark);
     }
-    .btn.primary:hover{ filter: brightness(1.03); }
+    .btn.primary:hover{ background: var(--sky-dark-2); }
 
     .note{
-      margin-top:14px;
+      margin-top:16px;
       padding-top:14px;
       border-top: 1px solid var(--border);
-      color: var(--muted);
+      color: #64748b;
       font-size: 13px;
       display:flex;
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
-      position:relative;
     }
 
-    /* Mobile */
     @media (max-width: 900px){
       .layout{ grid-template-columns: 1fr; }
       aside{
         position: relative;
         height:auto;
         border-right:none;
-        border-bottom:1px solid var(--border);
+        border-bottom: 1px solid rgba(0,0,0,.06);
       }
       .center{ min-height: 70vh; }
       .profile{ flex-direction: column; align-items:flex-start; }
-      .avatar{ width:84px; height:84px; border-radius: 20px; }
+      .avatar{ width:88px; height:88px; border-radius: 20px; }
     }
   </style>
 </head>
@@ -223,11 +212,8 @@
   <div class="layout">
     <aside>
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <strong>Your Name</strong>
-          <span>Personal site</span>
-        </div>
+        <strong>Your Name</strong>
+        <span>Personal site</span>
       </div>
 
       <nav aria-label="Sidebar">
@@ -238,7 +224,7 @@
       </nav>
 
       <div class="sidebar-footer">
-        Upload your profile photo to <b>assets/profile.jpg</b> (or change the filename below).
+        Upload your photo to <b>assets/profile.jpg</b> (or change the filename in the HTML).
       </div>
     </aside>
 
@@ -246,14 +232,16 @@
       <div class="center">
         <div class="card">
           <div class="profile">
-            <img class="avatar" src="./assets/profile.jpg" alt="Profile photo" onerror="this.style.display='none'">
+            <img class="avatar" src="./assets/profile.jpg" alt="Profile photo"
+                 onerror="this.style.display='none'">
+
             <div>
-              <h1>Your Name</h1>
+              <div class="name-bubble">Your Name</div>
               <p class="subtitle">
-                Short description: what you’re studying + what you build + what you’re interested in.
+                Small description here — e.g. “CS student building robotics + embedded systems + software.”
               </p>
 
-              <div class="chips" aria-label="Highlights">
+              <div class="chips">
                 <span class="chip">Robotics</span>
                 <span class="chip">Embedded</span>
                 <span class="chip">Software</span>
@@ -270,7 +258,7 @@
           <div class="note">
             <span>© <span id="year"></span> Your Name</span>
             <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
-              Theme: #a1c6ea
+              #a1c6ea
             </span>
           </div>
         </div>
