@@ -3,115 +3,69 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blog - Sienna Li</title>
+  <title>Blog — Your Name</title>
   <style>
     :root{
-      --sky:#a1c6ea;
-      --ink:#12314a;
-      --ink2:#1b3f5c;
-      --muted:#234a66;
-      --white:#ffffff;
-      --border: rgba(0,0,0,.06);
+      --sky:#a1c6ea; --ink:#12314a; --ink2:#1b3f5c; --muted:#234a66;
+      --white:#ffffff; --border: rgba(0,0,0,.06);
       --shadow: 0 18px 50px rgba(15,23,42,.10);
-      --radius: 22px;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: var(--white);
-      color: var(--ink);
-    }
+    body{margin:0; font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:var(--white); color:var(--ink);}
     a{color:inherit; text-decoration:none}
 
     .layout{display:grid; grid-template-columns:270px 1fr; min-height:100vh;}
-
-    aside{
-      position: sticky; top:0; height:100vh;
-      padding:18px; background: var(--sky);
-      border-right: 1px solid var(--border);
-    }
-    .brand{
-      padding:12px; border-radius:16px;
-      background: rgba(255,255,255,.25);
-      border: 1px solid rgba(255,255,255,.30);
-    }
+    aside{position:sticky; top:0; height:100vh; padding:18px; background:var(--sky); border-right:1px solid var(--border);}
+    .brand{padding:12px; border-radius:16px; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.30);}
     .brand strong{display:block; font-size:14px}
     .brand span{display:block; font-size:12px; opacity:.85; margin-top:2px}
 
     nav{margin-top:14px; display:grid; gap:8px;}
-    nav a{
-      display:flex; align-items:center; gap:10px;
-      padding:10px 12px; border-radius:14px;
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(255,255,255,.20);
-      color: var(--ink);
-    }
-    nav a:hover{background: rgba(255,255,255,.30); border-color: rgba(255,255,255,.38);}
-    nav a.active{
-      background: rgba(255,255,255,.45);
-      border-color: rgba(255,255,255,.55);
-      font-weight: 700;
-    }
+    nav a{display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:14px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.20);}
+    nav a:hover{background:rgba(255,255,255,.30); border-color:rgba(255,255,255,.38);}
+    nav a.active{background:rgba(255,255,255,.45); border-color:rgba(255,255,255,.55); font-weight:700;}
 
-    .sidebar-footer{
-      margin-top:auto; padding:12px; border-radius:16px;
-      background: rgba(255,255,255,.20);
-      border: 1px solid rgba(255,255,255,.28);
-      font-size: 13px; opacity:.9;
-    }
+    .sidebar-footer{margin-top:auto; padding:12px; border-radius:16px; background:rgba(255,255,255,.20); border:1px solid rgba(255,255,255,.28); font-size:13px; opacity:.9;}
 
     main{padding:28px;}
     .center{min-height: calc(100vh - 56px); display:grid; place-items:center;}
-    .bubble{
-      width: min(900px, 100%);
-      background: var(--sky);
-      border-radius: 34px;
-      border: 1px solid rgba(0,0,0,.05);
-      box-shadow: var(--shadow);
-      padding: 30px;
-    }
+    .bubble{width:min(1050px,100%); background:var(--sky); border-radius:34px; border:1px solid rgba(0,0,0,.05); box-shadow:var(--shadow); padding:30px;}
 
     h1{margin:0 0 10px; font-size: clamp(28px, 3.8vw, 44px); letter-spacing:-.6px; line-height:1.05;}
-    .subtitle{margin:0 0 18px; color: var(--muted); max-width: 70ch;}
+    .subtitle{margin:0 0 18px; color:var(--muted); max-width: 72ch;}
 
-    .list{display:grid; gap:12px; margin-top:14px;}
+    .list{display:grid; gap:14px; margin-top:14px;}
     .post{
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap:14px;
       padding:14px;
       border-radius: 18px;
       background: rgba(255,255,255,.35);
       border: 1px solid rgba(255,255,255,.45);
+      align-items:stretch;
     }
     .post:hover{background: rgba(255,255,255,.48);}
-    .post-title{font-weight:800; margin:0 0 6px;}
-    .post-meta{font-size:13px; color: rgba(18,49,74,.75); margin:0 0 6px;}
-    .post-desc{margin:0; color: rgba(18,49,74,.82);}
-
-    .actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px; border-radius:14px;
-      border: 1px solid rgba(255,255,255,.55);
-      background: rgba(255,255,255,.45);
-      color: var(--ink);
-      cursor:pointer;
+    .thumb{
+      width:150px; height:110px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid rgba(0,0,0,.06);
+      background: rgba(255,255,255,.35);
     }
-    .btn:hover{background: rgba(255,255,255,.60);}
-    .btn.primary{border:none; background: var(--ink); color:#fff;}
-    .btn.primary:hover{background: var(--ink2);}
+    .post-title{font-weight:900; margin:0 0 6px; font-size:18px;}
+    .post-meta{margin:0 0 8px; font-size:13px; color: rgba(18,49,74,.75);}
+    .post-desc{margin:0; color: rgba(18,49,74,.84);}
 
-    .note{
-      margin-top:18px; padding-top:14px;
-      border-top: 1px solid rgba(0,0,0,.06);
-      display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-      font-size: 13px; color: rgba(18,49,74,.75);
-    }
+    .note{margin-top:18px; padding-top:14px; border-top:1px solid rgba(0,0,0,.06); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13px; color:rgba(18,49,74,.75);}
 
     @media (max-width: 900px){
       .layout{grid-template-columns:1fr;}
-      aside{position:relative; height:auto; border-right:none; border-bottom: 1px solid var(--border);}
+      aside{position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border);}
       .center{min-height: 70vh;}
       .bubble{border-radius:28px; padding:22px;}
+      .post{grid-template-columns:1fr;}
+      .thumb{width:100%; height:180px;}
     }
   </style>
 </head>
@@ -119,7 +73,7 @@
   <div class="layout">
     <aside>
       <div class="brand">
-        <strong>Sienna Li</strong>
+        <strong>Your Name</strong>
         <span>Personal site</span>
       </div>
 
@@ -131,7 +85,7 @@
       </nav>
 
       <div class="sidebar-footer">
-        Tip: you can add individual posts as folders like <b>blogs/my-post/index.html</b>.
+        Add posts as folders like <b>blogs/my-post/index.html</b>.
       </div>
     </aside>
 
@@ -139,31 +93,28 @@
       <div class="center">
         <div class="bubble">
           <h1>Blog</h1>
-          <p class="subtitle">Write posts about what you’re building, learning, or shipping.</p>
+          <p class="subtitle">Click a post to open its page.</p>
 
           <div class="list">
-            <a class="post" href="#">
-              <p class="post-title">First post title</p>
-              <p class="post-meta">Jan 2026 • 3 min read</p>
-              <p class="post-desc">A short one-line summary of the post goes here.</p>
+            <!-- Post 1 -->
+            <a class="post" href="./first-post/">
+              <img class="thumb" src="../assets/blog/first-post.jpg" alt="First post thumbnail">
+              <div>
+                <p class="post-title">First Post Title</p>
+                <p class="post-meta">Jan 2026 • 3 min read</p>
+                <p class="post-desc">One sentence summary that makes someone want to click.</p>
+              </div>
             </a>
 
-            <a class="post" href="#">
-              <p class="post-title">Second post title</p>
-              <p class="post-meta">Jan 2026 • 5 min read</p>
-              <p class="post-desc">Another short summary. Keep it punchy.</p>
+            <!-- Post 2 -->
+            <a class="post" href="./second-post/">
+              <img class="thumb" src="../assets/blog/second-post.jpg" alt="Second post thumbnail">
+              <div>
+                <p class="post-title">Second Post Title</p>
+                <p class="post-meta">Dec 2025 • 5 min read</p>
+                <p class="post-desc">Short summary for this post.</p>
+              </div>
             </a>
-
-            <a class="post" href="#">
-              <p class="post-title">Third post title</p>
-              <p class="post-meta">Dec 2025 • 4 min read</p>
-              <p class="post-desc">What you learned / built / debugged.</p>
-            </a>
-          </div>
-
-          <div class="actions">
-            <a class="btn primary" href="../projects/">View Projects</a>
-            <a class="btn" href="../">Back Home</a>
           </div>
 
           <div class="note">
