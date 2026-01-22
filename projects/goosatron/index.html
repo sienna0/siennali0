@@ -6,66 +6,78 @@
   <title>GOOSATRON — Your Name</title>
   <style>
     :root{
-      --sky:#a1c6ea; --ink:#12314a; --ink2:#1b3f5c; --muted:#234a66;
-      --white:#ffffff; --border: rgba(0,0,0,.06);
-      --shadow: 0 18px 50px rgba(15,23,42,.10);
+      --sky:#a1c6ea;
+      --ink:#12314a;
+      --muted:#234a66;
+      --border: rgba(0,0,0,.08);
+      --card-border: rgba(0,0,0,.06);
+      --link:#0b4a7a;
+      --max: 900px;
     }
     *{box-sizing:border-box}
-    body{margin:0; font:16px/1.7 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:var(--white); color:var(--ink);}
-    a{color:inherit; text-decoration:none}
+    body{margin:0; font:16px/1.75 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--ink); background:#fff;}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
     .layout{display:grid; grid-template-columns:270px 1fr; min-height:100vh;}
+
     aside{position:sticky; top:0; height:100vh; padding:18px; background:var(--sky); border-right:1px solid var(--border);}
     .brand{padding:12px; border-radius:16px; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.30);}
     .brand strong{display:block; font-size:14px}
     .brand span{display:block; font-size:12px; opacity:.85; margin-top:2px}
+
     nav{margin-top:14px; display:grid; gap:8px;}
-    nav a{display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:14px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.20);}
+    nav a{display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:14px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.20); color:var(--ink); text-decoration:none;}
     nav a:hover{background:rgba(255,255,255,.30); border-color:rgba(255,255,255,.38);}
+
     .sidebar-footer{margin-top:auto; padding:12px; border-radius:16px; background:rgba(255,255,255,.20); border:1px solid rgba(255,255,255,.28); font-size:13px; opacity:.9;}
 
-    main{padding:28px;}
-    .center{min-height: calc(100vh - 56px); display:grid; place-items:center;}
-    .bubble{width:min(980px,100%); background:var(--sky); border-radius:34px; border:1px solid rgba(0,0,0,.05); box-shadow:var(--shadow); padding:30px;}
+    main{padding: 34px 26px;}
+    .content{max-width: var(--max); margin: 0 auto;}
 
-    h1{margin:0 0 8px; font-size: clamp(28px, 3.8vw, 44px); letter-spacing:-.6px; line-height:1.05;}
-    .subtitle{margin:0 0 18px; color:var(--muted); max-width: 75ch;}
+    h1{margin:0 0 6px; font-size: clamp(30px, 4vw, 48px); letter-spacing:-0.8px; line-height:1.1;}
+    .subtitle{margin:0 0 18px; color:var(--muted); font-size:16px; max-width: 70ch;}
 
-    .hero img{
-      width:100%;
-      max-height: 340px;
-      object-fit: cover;
-      border-radius: 18px;
-      border: 1px solid rgba(0,0,0,.06);
-      background: rgba(255,255,255,.35);
+    .meta{display:flex; flex-wrap:wrap; gap:10px; margin: 14px 0 26px; color: rgba(18,49,74,.75); font-size: 13px;}
+    .pill{padding:6px 10px; border-radius:999px; border:1px solid rgba(0,0,0,.08); background:#fff;}
+
+    h2{margin: 28px 0 10px; font-size: 18px;}
+    p{margin: 0 0 14px; color: rgba(18,49,74,.90);}
+    ul{margin: 0 0 14px 18px; color: rgba(18,49,74,.90);}
+
+    figure{margin: 18px 0;}
+    img{width:100%; border-radius: 14px; border: 1px solid var(--card-border); display:block;}
+    figcaption{margin-top:8px; color: rgba(18,49,74,.70); font-size: 13px;}
+
+    .links{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0,0,0,.08);
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
     }
-
-    .section{
-      margin-top: 14px;
-      padding:14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.35);
-      border: 1px solid rgba(255,255,255,.45);
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: #fff;
+      color: var(--ink);
+      text-decoration:none;
     }
-    .section h2{margin:0 0 8px; font-size:18px;}
-    .section p, .section li{color: rgba(18,49,74,.84);}
-    ul{margin:8px 0 0 18px}
-
-    .actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;}
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.55); background:rgba(255,255,255,.45); cursor:pointer;}
-    .btn:hover{background:rgba(255,255,255,.60);}
-    .btn.primary{border:none; background:var(--ink); color:#fff;}
-    .btn.primary:hover{background:var(--ink2);}
-
-    .note{margin-top:18px; padding-top:14px; border-top:1px solid rgba(0,0,0,.06); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13px; color:rgba(18,49,74,.75);}
+    .btn:hover{background:#f7fbff; text-decoration:none}
 
     @media (max-width: 900px){
       .layout{grid-template-columns:1fr;}
       aside{position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border);}
-      .center{min-height: 70vh;}
-      .bubble{border-radius:28px; padding:22px;}
+      main{padding: 22px 16px;}
     }
   </style>
 </head>
+
 <body>
   <div class="layout">
     <aside>
@@ -82,61 +94,61 @@
       </nav>
 
       <div class="sidebar-footer">
-        Back to the projects list anytime.
+        Add images in <b>assets/projects/</b> and reference them here.
       </div>
     </aside>
 
     <main>
-      <div class="center">
-        <div class="bubble">
-          <h1>Autonomous Temperature Goose (GOOSATRON)</h1>
-          <p class="subtitle">
-            Temperature-measuring autonomous robot (in goose form) to study climate change.
-          </p>
+      <article class="content">
+        <h1>Autonomous Temperature Goose (GOOSATRON)</h1>
+        <p class="subtitle">
+          Temperature-calculating autonomous robot to study climate change — in the form of a goose.
+        </p>
 
-          <!-- Optional hero image (add goosatron.jpg to assets/projects/) -->
-          <div class="hero">
-            <img src="../../assets/projects/cuair-sentinel.jpg" alt="GOOSATRON image">
-          </div>
-
-          <div class="section">
-            <h2>Overview</h2>
-            <p>
-              GOOSATRON is a playful robotics project: an autonomous “goose” that measures temperature
-              and records data to help explore climate trends across different locations.
-            </p>
-          </div>
-
-          <div class="section">
-            <h2>What it does</h2>
-            <ul>
-              <li>Autonomously navigates a route / area (depending on your build) while taking temperature readings.</li>
-              <li>Logs measurements for later analysis / plotting.</li>
-              <li>Uses a simple “goose” physical form factor to make the project memorable and approachable.</li>
-            </ul>
-          </div>
-
-          <div class="section">
-            <h2>Tech</h2>
-            <p>Python, robotics sensors, data logging/analysis.</p>
-          </div>
-
-          <div class="actions">
-            <a class="btn primary" href="../">Back to Projects</a>
-            <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-
-          <div class="note">
-            <span>© <span id="year"></span> Your Name</span>
-            <span>#a1c6ea theme</span>
-          </div>
+        <div class="meta">
+          <span class="pill">Robotics</span>
+          <span class="pill">Python</span>
+          <span class="pill">Climate Change</span>
         </div>
-      </div>
+
+        <figure>
+          <!-- Change this to your actual GOOSATRON image name -->
+          <img src="../../assets/projects/goosatron.jpg" alt="GOOSATRON image">
+          <figcaption>Optional: caption for the goose (sensor setup, field test, etc.).</figcaption>
+        </figure>
+
+        <h2>Overview</h2>
+        <p>
+          Explain the idea: where it collects temperature, why the form factor is fun/useful,
+          and what you do with the data.
+        </p>
+
+        <h2>System design</h2>
+        <ul>
+          <li>Hardware: sensors + compute + drive system (add details)</li>
+          <li>Software: navigation/autonomy logic + data logging</li>
+          <li>Output: dataset + plots / map overlays</li>
+        </ul>
+
+        <h2>What I built</h2>
+        <ul>
+          <li>Temperature reading + calibration pipeline.</li>
+          <li>Autonomous control loop to move and sample readings.</li>
+          <li>Logging + basic analysis scripts to visualize temperature changes.</li>
+        </ul>
+
+        <h2>Results / next steps</h2>
+        <p>
+          Add any results and what you’re doing next (more sensors, better mapping, longer runs, etc.).
+        </p>
+
+        <div class="links">
+          <a class="btn" href="../">← Back to Projects</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Photos / Demo</a>
+        </div>
+      </article>
     </main>
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

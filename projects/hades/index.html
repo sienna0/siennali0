@@ -6,66 +6,161 @@
   <title>Project Hades — Your Name</title>
   <style>
     :root{
-      --sky:#a1c6ea; --ink:#12314a; --ink2:#1b3f5c; --muted:#234a66;
-      --white:#ffffff; --border: rgba(0,0,0,.06);
-      --shadow: 0 18px 50px rgba(15,23,42,.10);
+      --sky:#a1c6ea;
+      --ink:#12314a;
+      --muted:#234a66;
+      --border: rgba(0,0,0,.08);
+      --card-border: rgba(0,0,0,.06);
+      --link:#0b4a7a;
+      --max: 900px;
     }
     *{box-sizing:border-box}
-    body{margin:0; font:16px/1.7 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:var(--white); color:var(--ink);}
-    a{color:inherit; text-decoration:none}
+    body{
+      margin:0;
+      font: 16px/1.75 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--ink);
+      background: #fff;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
     .layout{display:grid; grid-template-columns:270px 1fr; min-height:100vh;}
-    aside{position:sticky; top:0; height:100vh; padding:18px; background:var(--sky); border-right:1px solid var(--border);}
-    .brand{padding:12px; border-radius:16px; background:rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.30);}
+
+    /* Sidebar */
+    aside{
+      position: sticky;
+      top:0;
+      height:100vh;
+      padding:18px;
+      background: var(--sky);
+      border-right:1px solid var(--border);
+    }
+    .brand{
+      padding:12px;
+      border-radius:16px;
+      background: rgba(255,255,255,.25);
+      border: 1px solid rgba(255,255,255,.30);
+      color: var(--ink);
+    }
     .brand strong{display:block; font-size:14px}
     .brand span{display:block; font-size:12px; opacity:.85; margin-top:2px}
+
     nav{margin-top:14px; display:grid; gap:8px;}
-    nav a{display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:14px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.20);}
-    nav a:hover{background:rgba(255,255,255,.30); border-color:rgba(255,255,255,.38);}
-    .sidebar-footer{margin-top:auto; padding:12px; border-radius:16px; background:rgba(255,255,255,.20); border:1px solid rgba(255,255,255,.28); font-size:13px; opacity:.9;}
+    nav a{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.20);
+      color: var(--ink);
+      text-decoration:none;
+    }
+    nav a:hover{
+      background: rgba(255,255,255,.30);
+      border-color: rgba(255,255,255,.38);
+    }
 
-    main{padding:28px;}
-    .center{min-height: calc(100vh - 56px); display:grid; place-items:center;}
-    .bubble{width:min(980px,100%); background:var(--sky); border-radius:34px; border:1px solid rgba(0,0,0,.05); box-shadow:var(--shadow); padding:30px;}
+    .sidebar-footer{
+      margin-top:auto;
+      padding:12px;
+      border-radius:16px;
+      background: rgba(255,255,255,.20);
+      border: 1px solid rgba(255,255,255,.28);
+      font-size:13px;
+      opacity:.9;
+      color: var(--ink);
+    }
 
-    h1{margin:0 0 8px; font-size: clamp(28px, 3.8vw, 44px); letter-spacing:-.6px; line-height:1.05;}
-    .subtitle{margin:0 0 18px; color:var(--muted); max-width: 75ch;}
+    /* Content */
+    main{padding: 34px 26px;}
+    .content{
+      max-width: var(--max);
+      margin: 0 auto;
+    }
 
-    .hero img{
+    h1{
+      margin:0 0 6px;
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 70ch;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin: 14px 0 26px;
+      color: rgba(18,49,74,.75);
+      font-size: 13px;
+    }
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+    }
+
+    h2{
+      margin: 28px 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    p{margin: 0 0 14px; color: rgba(18,49,74,.90);}
+    ul{margin: 0 0 14px 18px; color: rgba(18,49,74,.90);}
+
+    figure{margin: 18px 0;}
+    img{
       width:100%;
-      max-height: 340px;
-      object-fit: cover;
-      border-radius: 18px;
-      border: 1px solid rgba(0,0,0,.06);
-      background: rgba(255,255,255,.35);
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      display:block;
+    }
+    figcaption{
+      margin-top:8px;
+      color: rgba(18,49,74,.70);
+      font-size: 13px;
     }
 
-    .section{
-      margin-top: 14px;
-      padding:14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.35);
-      border: 1px solid rgba(255,255,255,.45);
+    .links{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(0,0,0,.08);
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
     }
-    .section h2{margin:0 0 8px; font-size:18px;}
-    .section p, .section li{color: rgba(18,49,74,.84);}
-    ul{margin:8px 0 0 18px}
-
-    .actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;}
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.55); background:rgba(255,255,255,.45); cursor:pointer;}
-    .btn:hover{background:rgba(255,255,255,.60);}
-    .btn.primary{border:none; background:var(--ink); color:#fff;}
-    .btn.primary:hover{background:var(--ink2);}
-
-    .note{margin-top:18px; padding-top:14px; border-top:1px solid rgba(0,0,0,.06); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13px; color:rgba(18,49,74,.75);}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: #fff;
+      color: var(--ink);
+      text-decoration:none;
+    }
+    .btn:hover{background:#f7fbff; text-decoration:none}
 
     @media (max-width: 900px){
       .layout{grid-template-columns:1fr;}
-      aside{position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border);}
-      .center{min-height: 70vh;}
-      .bubble{border-radius:28px; padding:22px;}
+      aside{
+        position: relative;
+        height:auto;
+        border-right:none;
+        border-bottom:1px solid var(--border);
+      }
+      main{padding: 22px 16px;}
     }
   </style>
 </head>
+
 <body>
   <div class="layout">
     <aside>
@@ -82,61 +177,65 @@
       </nav>
 
       <div class="sidebar-footer">
-        Back to the projects list anytime.
+        Tip: add more images in <b>assets/projects/</b> and reference them here.
       </div>
     </aside>
 
     <main>
-      <div class="center">
-        <div class="bubble">
-          <h1>Project Hades</h1>
-          <p class="subtitle">
-            Custom ArduPilot-based spline calculation library for smoother airborne turns.
-          </p>
+      <article class="content">
+        <h1>Project Hades</h1>
+        <p class="subtitle">
+          Custom ArduPilot-based library for spline calculation to produce smoother airborne turns.
+        </p>
 
-          <!-- Optional hero image (add hades.jpg to assets/projects/) -->
-          <div class="hero">
-            <img src="../../assets/projects/hades.jpg" alt="Project Hades image">
-          </div>
-
-          <div class="section">
-            <h2>Overview</h2>
-            <p>
-              I built a C++ spline-based path library to generate smoother turns for an ArduPilot-based system,
-              improving flight path continuity compared to sharp waypoint corners.
-            </p>
-          </div>
-
-          <div class="section">
-            <h2>What I built</h2>
-            <ul>
-              <li>Spline generation utilities (control points / sampling) designed for flight-path usage.</li>
-              <li>Turn-smoothing logic so the vehicle can follow continuous curvature instead of abrupt heading changes.</li>
-              <li>Integration hooks intended for ArduPilot-style navigation/path planning workflows.</li>
-            </ul>
-          </div>
-
-          <div class="section">
-            <h2>Tech</h2>
-            <p>C++, robotics/controls, ArduPilot ecosystem.</p>
-          </div>
-
-          <div class="actions">
-            <a class="btn primary" href="../">Back to Projects</a>
-            <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-
-          <div class="note">
-            <span>© <span id="year"></span> Your Name</span>
-            <span>#a1c6ea theme</span>
-          </div>
+        <div class="meta">
+          <span class="pill">Robotics</span>
+          <span class="pill">Embedded</span>
+          <span class="pill">C++</span>
         </div>
-      </div>
+
+        <figure>
+          <img src="../../assets/projects/hades.jpg" alt="Project Hades image">
+          <figcaption>Optional: caption for the image (what we’re looking at).</figcaption>
+        </figure>
+
+        <h2>Overview</h2>
+        <p>
+          Write 3–6 sentences explaining the project: what problem you ran into with turns,
+          why splines help, and where this fits in the flight stack.
+        </p>
+
+        <h2>How it works</h2>
+        <p>
+          Explain your approach at a high level. For example: generating a spline through control points,
+          sampling points along the curve, and feeding them into a navigation/steering component.
+        </p>
+        <ul>
+          <li>Input: waypoints / headings / constraints</li>
+          <li>Processing: spline control points + sampling</li>
+          <li>Output: smooth path segments / target points</li>
+        </ul>
+
+        <h2>What I built</h2>
+        <ul>
+          <li>C++ spline utilities designed for flight usage.</li>
+          <li>Turn-smoothing logic to avoid sharp waypoint corners.</li>
+          <li>Integration hooks for ArduPilot-style navigation workflows.</li>
+        </ul>
+
+        <h2>Results / next steps</h2>
+        <p>
+          Add what improved (smoother tracking, less overshoot, etc.) and what you want to do next
+          (tuning, testing in SITL/hardware, adding constraints, etc.).
+        </p>
+
+        <div class="links">
+          <a class="btn" href="../">← Back to Projects</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Video / Demo</a>
+        </div>
+      </article>
     </main>
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
