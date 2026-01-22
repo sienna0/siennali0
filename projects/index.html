@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects — Your Name</title>
+  <title>Projects - Sienna Li</title>
   <style>
     :root{
       --sky:#a1c6ea; --ink:#12314a; --ink2:#1b3f5c; --muted:#234a66;
@@ -23,30 +23,48 @@
     nav a:hover{background:rgba(255,255,255,.30); border-color:rgba(255,255,255,.38);}
     nav a.active{background:rgba(255,255,255,.45); border-color:rgba(255,255,255,.55); font-weight:700;}
     .sidebar-footer{margin-top:auto; padding:12px; border-radius:16px; background:rgba(255,255,255,.20); border:1px solid rgba(255,255,255,.28); font-size:13px; opacity:.9;}
+
     main{padding:28px;}
     .center{min-height: calc(100vh - 56px); display:grid; place-items:center;}
-    .bubble{width:min(980px,100%); background:var(--sky); border-radius:34px; border:1px solid rgba(0,0,0,.05); box-shadow:var(--shadow); padding:30px;}
+    .bubble{width:min(1050px,100%); background:var(--sky); border-radius:34px; border:1px solid rgba(0,0,0,.05); box-shadow:var(--shadow); padding:30px;}
     h1{margin:0 0 10px; font-size: clamp(28px, 3.8vw, 44px); letter-spacing:-.6px; line-height:1.05;}
     .subtitle{margin:0 0 18px; color:var(--muted); max-width: 70ch;}
 
-    .grid{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin-top:14px;}
-    .proj{
+    .grid{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; margin-top:14px;}
+    .card{
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap:14px;
       padding:14px;
       border-radius: 18px;
       background: rgba(255,255,255,.35);
       border: 1px solid rgba(255,255,255,.45);
+      align-items:stretch;
     }
-    .proj:hover{background: rgba(255,255,255,.48);}
-    .proj h3{margin:0 0 6px; font-size:18px;}
-    .proj p{margin:0; color: rgba(18,49,74,.82);}
-    .tags{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;}
+    .card:hover{background: rgba(255,255,255,.48);}
+    .thumb{
+      width:150px; height:110px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid rgba(0,0,0,.06);
+      background: rgba(255,255,255,.35);
+    }
+    .card h3{margin:0 0 6px; font-size:18px;}
+    .card p{margin:0; color: rgba(18,49,74,.82);}
+    .meta{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;}
     .tag{font-size:13px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.35); border:1px solid rgba(255,255,255,.45);}
-
-    .actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;}
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.55); background:rgba(255,255,255,.45); cursor:pointer;}
+    .actions{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.55);
+      background:rgba(255,255,255,.45);
+      cursor:pointer;
+    }
     .btn:hover{background:rgba(255,255,255,.60);}
     .btn.primary{border:none; background:var(--ink); color:#fff;}
     .btn.primary:hover{background:var(--ink2);}
+
     .note{margin-top:18px; padding-top:14px; border-top:1px solid rgba(0,0,0,.06); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13px; color:rgba(18,49,74,.75);}
 
     @media (max-width: 900px){
@@ -55,6 +73,8 @@
       .center{min-height: 70vh;}
       .bubble{border-radius:28px; padding:22px;}
       .grid{grid-template-columns:1fr;}
+      .card{grid-template-columns: 1fr; }
+      .thumb{width:100%; height:180px;}
     }
   </style>
 </head>
@@ -62,7 +82,7 @@
   <div class="layout">
     <aside>
       <div class="brand">
-        <strong>Your Name</strong>
+        <strong>Sienna Li</strong>
         <span>Personal site</span>
       </div>
 
@@ -74,7 +94,7 @@
       </nav>
 
       <div class="sidebar-footer">
-        Tip: link projects to GitHub repos, demos, or writeups.
+        Add project images in <b>assets/projects/</b> (jpg/png) and link them below.
       </div>
     </aside>
 
@@ -82,58 +102,32 @@
       <div class="center">
         <div class="bubble">
           <h1>Projects</h1>
-          <p class="subtitle">A few things I’ve built (or am building). Replace these with your real projects.</p>
+          <p class="subtitle">Each project has a thumbnail + quick summary, and a “read more” page.</p>
 
           <div class="grid">
-            <a class="proj" href="#" target="_blank" rel="noreferrer">
-              <h3>Project A</h3>
-              <p>One-line description of what it does and why it’s cool.</p>
-              <div class="tags">
-                <span class="tag">Robotics</span><span class="tag">Python</span><span class="tag">Control</span>
+            <!-- Project card 1 -->
+            <div class="card">
+              <img class="thumb" src="../assets/projects/hades.jpg" alt="Project Hades thumbnail">
+              <div>
+                <h3>Project Hades</h3>
+                <p>Custom ArduPilot-based tilt-rotor autopilot + telemetry + power monitoring.</p>
+                <div class="meta">
+                  <span class="tag">Robotics</span><span class="tag">Embedded</span><span class="tag">ArduPilot</span>
+                </div>
+                <div class="actions">
+                  <a class="btn primary" href="./hades/">Read more</a>
+                  <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
+                </div>
               </div>
-            </a>
+            </div>
 
-            <a class="proj" href="#" target="_blank" rel="noreferrer">
-              <h3>Project B</h3>
-              <p>What you made + an outcome (speed, accuracy, etc.).</p>
-              <div class="tags">
-                <span class="tag">Embedded</span><span class="tag">C++</span><span class="tag">CAN</span>
-              </div>
-            </a>
-
-            <a class="proj" href="#" target="_blank" rel="noreferrer">
-              <h3>Project C</h3>
-              <p>Something web/app related, or a class project you’re proud of.</p>
-              <div class="tags">
-                <span class="tag">Web</span><span class="tag">UI</span><span class="tag">APIs</span>
-              </div>
-            </a>
-
-            <a class="proj" href="#" target="_blank" rel="noreferrer">
-              <h3>Project D</h3>
-              <p>Another project. You can keep this to 3–6 total.</p>
-              <div class="tags">
-                <span class="tag">Systems</span><span class="tag">Testing</span><span class="tag">Tools</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="actions">
-            <a class="btn primary" href="../blogs/">Read Blog</a>
-            <a class="btn" href="../">Back Home</a>
-          </div>
-
-          <div class="note">
-            <span>© <span id="year"></span> Your Name</span>
-            <span>#a1c6ea theme</span>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+            <!-- Project card 2 -->
+            <div class="card">
+              <img class="thumb" src="../assets/projects/cuair-sentinel.jpg" alt="Sentinel Chatbot thumbnail">
+              <div>
+                <h3>Sentinel Chatbot</h3>
+                <p>Team support chatbot to speed up debugging, onboarding, and documentation lookup.</p>
+                <div class="meta">
+                  <span class="tag">Software</span><span class="tag">Tools</span><span class="tag">AI</span>
+                </div>
+                <div class="actions">
